@@ -18,6 +18,24 @@
 .about-image-tag strong { color: #ffd363; font-size: 16px; }
 .about-hero-orbit { position: absolute; z-index: -1; top: 52px; right: -87px; width: 300px; height: 300px; border: 1px dashed rgb(197 132 8 / 38%); border-radius: 50%; animation: about-spin 28s linear infinite; }
 .about-hero-sun { position: absolute; z-index: -1; top: 21%; left: -38px; width: 82px; height: 82px; border-radius: 50%; background: #ffd363; animation: about-float 4s ease-in-out infinite alternate; }
+.about-method { position: relative; isolation: isolate; overflow: hidden; padding: 70px 20px; background: #fbf8f1; }
+.about-method-sun { position: absolute; z-index: -1; top: -120px; left: -160px; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, #fde9cc 0%, #fdf0dc 55%, transparent 70%); animation: about-float 7s ease-in-out infinite alternate; }
+.about-method-inner { width: min(100%, 1120px); margin-inline: auto; text-align: center; }
+.about-method h2 { margin: 0; color: #2b2f3a; font-size: clamp(30px, 5vw, 44px); font-weight: 500; letter-spacing: .5px; text-transform: uppercase; }
+.about-method-steps { position: relative; display: grid; gap: 18px; margin: 38px 0 0; padding: 0; list-style: none; counter-reset: none; }
+.about-method-card { --m-color: #2ec4e6; --m-soft: #eafaff; position: relative; display: flex; flex-direction: column; overflow: hidden; border: 2px solid var(--m-color); border-radius: 16px; background: var(--m-soft); box-shadow: 0 12px 24px rgb(37 43 66 / 8%); text-align: center; transition: transform .35s cubic-bezier(.22, 1, .36, 1), box-shadow .35s ease; }
+.about-method-understand { --m-color: #ffcc1f; --m-soft: #fffbea; }
+.about-method-apply { --m-color: #9fd65a; --m-soft: #f5fbec; }
+.about-method-create { --m-color: #ff6b6b; --m-soft: #fff1f0; }
+.about-method-card:hover { transform: translateY(-8px) rotate(-.6deg); box-shadow: 0 20px 34px rgb(37 43 66 / 15%); }
+.about-method-head { position: relative; display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 66px; padding: 14px 16px; background: var(--m-color); }
+.about-method-head h3 { margin: 0; color: #1d2433; font-size: 21px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; }
+.about-method-head svg { width: 24px; height: 24px; fill: none; stroke: #1d2433; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; transition: transform .45s cubic-bezier(.22, 1, .36, 1); }
+.about-method-card:hover .about-method-head svg { transform: scale(1.2) rotate(-10deg); }
+.about-method-number { position: absolute; top: 8px; left: 12px; color: rgb(29 36 51 / 45%); font-size: 11px; font-weight: 800; }
+.about-method-card p { margin: 0; padding: 18px 20px 22px; color: #1d2433; font-size: 14px; font-weight: 500; line-height: 1.5; }
+.about-method-closing { max-width: 460px; margin: 34px auto 0; color: #2b2f3a; font-size: 16px; line-height: 1.55; }
+.about-method-closing strong { color: var(--color-orange); }
 .about-story { padding: 76px 20px; }
 .about-story-grid { display: grid; gap: 18px; }
 .about-story h2, .about-purpose h2, .about-values h2 { margin: 0; font-size: clamp(31px, 6vw, 51px); line-height: 1.12; letter-spacing: -1.1px; }
@@ -70,6 +88,6 @@
 @keyframes about-reveal { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes about-float { from { transform: translateY(0); } to { transform: translateY(-13px); } }
 @keyframes about-spin { to { transform: rotate(360deg); } }
-@media (min-width: 680px) { .about-hero, .about-story { padding-inline: 40px; }.about-hero-inner { grid-template-columns: minmax(0, 1.12fr) minmax(280px, .88fr); align-items: center; }.about-stat-row { grid-template-columns: repeat(3, 1fr); }.about-purpose { padding: 85px 40px; }.about-purpose-cards { grid-template-columns: repeat(2, 1fr); }.about-values { grid-template-columns: .82fr 1.18fr; padding: 90px 40px; }.about-hero-image { margin-left: auto; } }
-@media (min-width: 1024px) { .about-hero { padding: 122px 40px 110px; }.about-hero-inner { max-width: 1120px; gap: 106px; }.about-hero-image { width: 470px; }.about-story { padding: 116px 40px; }.about-story-grid { grid-template-columns: .55fr 1.1fr .85fr; align-items: start; gap: 47px; }.about-story-grid .about-kicker { padding-top: 8px; }.about-stat-row { margin-top: 70px; }.about-stat-row div { padding: 31px 25px; }.about-purpose { width: min(100% - 80px, 1120px); padding: 100px 78px; }.about-purpose-cards { gap: 23px; margin-top: 52px; }.about-values { width: min(100% - 80px, 1120px); padding: 112px 0; gap: 100px; }.about-values-list { gap: 17px; } }
-@media (prefers-reduced-motion: reduce) { .about-reveal, .about-hero-orbit, .about-hero-sun, .about-hero-image::before, .about-purpose-dots { animation: none; } }
+@media (min-width: 680px) { .about-method { padding: 86px 40px; }.about-method-steps { grid-template-columns: repeat(2, 1fr); }.about-hero, .about-story { padding-inline: 40px; }.about-hero-inner { grid-template-columns: minmax(0, 1.12fr) minmax(280px, .88fr); align-items: center; }.about-stat-row { grid-template-columns: repeat(3, 1fr); }.about-purpose { padding: 85px 40px; }.about-purpose-cards { grid-template-columns: repeat(2, 1fr); }.about-values { grid-template-columns: .82fr 1.18fr; padding: 90px 40px; }.about-hero-image { margin-left: auto; } }
+@media (min-width: 1024px) { .about-method-steps { grid-template-columns: repeat(4, 1fr); gap: 22px; }.about-method-steps::before { position: absolute; z-index: -1; top: 33px; right: 8%; left: 8%; border-top: 2px dashed rgb(37 43 66 / 18%); content: ""; }.about-hero { padding: 122px 40px 110px; }.about-hero-inner { max-width: 1120px; gap: 106px; }.about-hero-image { width: 470px; }.about-story { padding: 116px 40px; }.about-story-grid { grid-template-columns: .55fr 1.1fr .85fr; align-items: start; gap: 47px; }.about-story-grid .about-kicker { padding-top: 8px; }.about-stat-row { margin-top: 70px; }.about-stat-row div { padding: 31px 25px; }.about-purpose { width: min(100% - 80px, 1120px); padding: 100px 78px; }.about-purpose-cards { gap: 23px; margin-top: 52px; }.about-values { width: min(100% - 80px, 1120px); padding: 112px 0; gap: 100px; }.about-values-list { gap: 17px; } }
+@media (prefers-reduced-motion: reduce) { .about-method-sun, .about-reveal, .about-hero-orbit, .about-hero-sun, .about-hero-image::before, .about-purpose-dots { animation: none; } }

@@ -38,9 +38,14 @@ export default function FrequentlyAskedQuestions() {
   }
 
   return <section className="faq-section" id="preguntas-frecuentes" aria-labelledby="faq-heading">
-    <span className="faq-orb faq-orb-one" aria-hidden="true" />
-    <span className="faq-orb faq-orb-two" aria-hidden="true" />
-    <span className="faq-stars" aria-hidden="true">✦</span>
+    <div className="faq-decor" aria-hidden="true">
+      <span className="faq-quarter" />
+      <span className="faq-dots" />
+      <span className="faq-ring" />
+      <span className="faq-half" />
+      <span className="faq-corner" />
+      <span className="faq-stars">✦</span>
+    </div>
     <div className="faq-layout">
       <div className="faq-visual">
         <img src={faqImage} alt="Estudiantes de Paideia concentrados en una actividad académica" loading="lazy" decoding="async" />

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import heroSchool from './assets/hero-school.png'
+import heroSchool from './assets/hero-paideia.png'
 import nidoImage from './assets/nido.jpg'
 import inicialImage from './assets/inicial.jpg'
 import primariaImage from './assets/primaria.jpg'
@@ -7,6 +7,8 @@ import secundariaImage from './assets/secundaria.jpg'
 import WhyChooseUs from './WhyChooseUs'
 import FrequentlyAskedQuestions from './FrequentlyAskedQuestions'
 import Footer from './Footer'
+import News from './News'
+import Admission from './Admission'
 import AboutPage from './AboutPage'
 import CampusesPage from './CampusesPage'
 import americaFacade from './assets/paideia america.png'
@@ -15,6 +17,7 @@ import febreroFacade from './assets/paideia 22 de febrero.png'
 
 const navigation = [
   { label: 'Inicio', href: '#inicio' },
+  { label: 'Nosotros', href: '#nosotros' },
   {
     label: 'Propuesta educativa',
     children: [
@@ -29,26 +32,25 @@ const navigation = [
       { label: 'Noticias', href: '#noticias' },
     ],
   },
-  { label: 'Nosotros', href: '#nosotros' },
 ]
 
 const features = [
-  { title: <>Docentes<br />capacitados</>, text: 'Un equipo que inspira, guía y acompaña el potencial de cada estudiante.', type: 'cap' },
-  { title: <>Cursos<br />interactivos</>, text: 'Experiencias dinámicas que convierten la curiosidad en aprendizaje real.', type: 'course' },
-  { title: <>Aprendizaje<br />asegurado</>, text: 'Una formación cercana para avanzar con confianza hacia cada meta.', type: 'book' },
+  { title: <>Aprendizaje<br />activo</>, text: 'Experiencias que despiertan la curiosidad.', type: 'bulb' },
+  { title: <>Desarrollo<br />integral</>, text: 'Conocimientos, autonomía y creatividad.', type: 'growth' },
+  { title: <>Formación<br />en valores</>, text: 'Educamos con amor, integridad y propósito.', type: 'heart' },
 ]
 
 const schoolLevels = [
-  { number: '01', name: 'Nido', age: 'Desde los 18 meses', image: nidoImage, color: '#1596d0', soft: '#dff4ff', text: 'Un primer espacio seguro, alegre y lleno de descubrimientos. Acompañamos cada paso con afecto, juego y experiencias que despiertan su curiosidad natural.' },
-  { number: '02', name: 'Inicial', age: '3 a 5 años', image: inicialImage, color: '#ef7827', soft: '#fff0df', text: 'Aprender haciendo, creando y compartiendo. Fortalecemos su autonomía y confianza para que conviertan cada pregunta en una nueva posibilidad.' },
-  { number: '03', name: 'Primaria', age: '6 a 11 años', image: primariaImage, color: '#46a870', soft: '#e5f6e9', text: 'Construimos bases sólidas para aprender con entusiasmo. Combinamos acompañamiento cercano, pensamiento crítico y una formación con propósito.' },
-  { number: '04', name: 'Secundaria', age: '12 a 16 años', image: secundariaImage, color: '#5142a4', soft: '#ebe9ff', text: 'Impulsamos líderes capaces de tomar decisiones, asumir retos y proyectar su futuro con seguridad, valores y una mirada global.' },
+  { number: '01', name: 'Nido', age: 'Desde los 18 meses', image: nidoImage, color: '#1596d0', soft: '#c4e8fb', text: 'Un primer espacio seguro, alegre y lleno de descubrimientos. Acompañamos cada paso con afecto, juego y experiencias que despiertan su curiosidad natural.' },
+  { number: '02', name: 'Inicial', age: '3 a 5 años', image: inicialImage, color: '#ef7827', soft: '#fff1b8', text: 'Aprender haciendo, creando y compartiendo. Fortalecemos su autonomía y confianza para que conviertan cada pregunta en una nueva posibilidad.' },
+  { number: '03', name: 'Primaria', age: '6 a 11 años', image: primariaImage, color: '#46a870', soft: '#ffdcbc', text: 'Construimos bases sólidas para aprender con entusiasmo. Combinamos acompañamiento cercano, pensamiento crítico y una formación con propósito.' },
+  { number: '04', name: 'Secundaria', age: '12 a 16 años', image: secundariaImage, color: '#5142a4', soft: '#cddffb', text: 'Impulsamos líderes capaces de tomar decisiones, asumir retos y proyectar su futuro con seguridad, valores y una mirada global.' },
 ]
 
 const campuses = [
-  { id: 'sede-trujillo', number: '01', name: 'Sede Trujillo', district: 'Trujillo', address: 'Av. América Sur 3845', detail: 'Un espacio para aprender, crear y desarrollar grandes metas.', color: 'gold' },
-  { id: 'sede-manuel-cedeno', number: '02', name: 'Sede Manuel Cedeño', district: 'La Esperanza', address: 'Jr. Manuel Cedeño 980', detail: 'Acompañamiento cercano para crecer con confianza y valores.', color: 'blue' },
-  { id: 'sede-22-febrero', number: '03', name: 'Sede 22 de Febrero', district: 'La Esperanza', address: '22 de Febrero 623', detail: 'Una comunidad que impulsa talentos y sueños todos los días.', color: 'coral' },
+  { id: 'sede-trujillo', number: '01', name: 'Sede Trujillo', district: 'Trujillo', address: 'Av. América Sur 3845', reference: 'Frente al Jardín Botánico', detail: 'Un espacio para aprender, crear y desarrollar grandes metas.', color: 'gold' },
+  { id: 'sede-manuel-cedeno', number: '02', name: 'Sede Manuel Cedeño', district: 'La Esperanza', address: 'Jr. Manuel Cedeño 980', reference: 'A 5 cuadras de la Plaza de Armas', detail: 'Acompañamiento cercano para crecer con confianza y valores.', color: 'blue' },
+  { id: 'sede-22-febrero', number: '03', name: 'Sede 22 de Febrero', district: 'La Esperanza', address: '22 de Febrero 623', reference: 'A 2 cuadras de la Comisaría Bellavista', detail: 'Una comunidad que impulsa talentos y sueños todos los días.', color: 'coral' },
 ]
 
 function Brand() {
@@ -58,13 +60,17 @@ function Brand() {
 }
 
 function Icon({ type }) {
-  if (type === 'cap') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2.5 8 9.5-4 9.5 4-9.5 4-9.5-4Z" /><path d="M6 10.2v4.1c2.7 2.3 9.3 2.3 12 0v-4.1M21.5 8v6" /><path d="M20.5 15.5h2l.6 2h-3.2l.6-2Z" /></svg>
-  if (type === 'course') return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2" /><path d="M9 4V2m6 2V2M9 12h6m-6 4h4" /><circle cx="12" cy="8" r="1" /></svg>
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h13.5v16H5c-1.1 0-2 .9-2 2h15.5" /><path d="M5 3.5v18M8 17h7" /></svg>
+  if (type === 'bulb') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4" /><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3Z" /><path d="M12 16v-4l-1.5-1.5M12 12l1.5-1.5" /></svg>
+  if (type === 'growth') return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="13" width="4" height="7" rx="1" /><rect x="10" y="9" width="4" height="11" rx="1" /><rect x="16" y="4" width="4" height="16" rx="1" /></svg>
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z" /></svg>
 }
 
 function LocationIcon() {
   return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5.4-8 11-8 11S4 15.4 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.7" /></svg>
+}
+
+function LandmarkIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10m14 11V10M9 21v-6h6v6M2.5 10 12 3l9.5 7Z" /></svg>
 }
 
 function NavigationItems({ activeLink, expandedMenu, setExpandedMenu, mobile = false, onNavigate }) {
@@ -96,16 +102,21 @@ function Header() {
         setActiveLink('Nosotros')
         return
       }
-      if (window.location.hash === '#sedes' || window.location.hash.startsWith('#sede-')) {
+      if (window.location.hash === '#sedes' || window.location.hash.startsWith('#sede-') || window.location.hash === '#noticias') {
         setActiveLink('Vida Paideia')
+        return
+      }
+      if (window.location.hash === '#admision') {
+        setActiveLink('Admisión 2027')
         return
       }
       const sections = [
         { id: 'niveles', label: 'Propuesta educativa' },
         { id: 'sedes-inicio', label: 'Vida Paideia' },
         { id: 'por-que-elegirnos', label: 'Nosotros' },
+        { id: 'preguntas-frecuentes', label: '' },
       ]
-      const activeSection = sections.find(({ id }) => document.getElementById(id)?.getBoundingClientRect().top < window.innerHeight * .45)
+      const activeSection = sections.findLast(({ id }) => document.getElementById(id)?.getBoundingClientRect().top < window.innerHeight * .45)
       setActiveLink(activeSection?.label ?? 'Inicio')
     }
     updateHeader()
@@ -131,7 +142,7 @@ function Header() {
       </nav>
       <div className="nav-actions">
         <a className="contact-link" href="#contacto">Contacto</a>
-        <a className="admission-link" href="#admision">Admisión 2027 <span className="admission-arrow" aria-hidden="true">→</span></a>
+        <a className={`admission-link ${activeLink === 'Admisión 2027' ? 'is-current' : ''}`} href="#admision" aria-current={activeLink === 'Admisión 2027' ? 'page' : undefined}>Admisión 2027 <span className="admission-arrow" aria-hidden="true">→</span></a>
         <button className={`menu-button ${isMenuOpen ? 'is-open' : ''}`} type="button" aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen((open) => { if (open) setExpandedMenu(null); return !open })}><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -155,16 +166,16 @@ function Hero() {
   return <div className="landing-intro">
     <section className="hero" aria-labelledby="hero-heading">
       <div className="hero-copy">
-        <p className="eyebrow">El mejor colegio para tus hijos</p>
-        <h1 id="hero-heading">En Paideia<br />formamos líderes</h1>
-        <p className="subtitle">Preparados para el futuro</p>
+        <p className="eyebrow">Una educación con propósito</p>
+        <h1 id="hero-heading"><span className="hero-brand">Paideia<span>,</span></span> formamos con propósito</h1>
+        <p className="subtitle">Explora <span aria-hidden="true">·</span> Comprende <span aria-hidden="true">·</span> Aplica <span aria-hidden="true">·</span> Crea</p>
         <div className="hero-buttons">
-          <a className="button button-primary" href="#matricula">Matricúlate ya</a>
-          <a className="button button-secondary" href="#conocenos">Conócenos</a>
+          <a className="button button-primary" href="#niveles">Conoce nuestra propuesta <span className="button-chevron" aria-hidden="true" /></a>
+          <a className="button button-secondary" href="#admision">Admisión 2027</a>
         </div>
       </div>
       <div className="hero-art">
-        <img src={heroSchool} alt="Estudiante graduada con una manzana y libros" />
+        <img src={heroSchool} alt="Estudiante de Paideia sonriendo con sus cuadernos" />
       </div>
     </section>
     <section className="features" aria-label="Beneficios de Paideia">
@@ -260,6 +271,7 @@ function Campuses() {
         <h3>{campus.name}</h3>
         <address><LocationIcon />{campus.address}</address>
         <p className="campus-detail">{campus.detail}</p>
+        <p className="campus-reference"><LandmarkIcon />{campus.reference}</p>
         <a className="campus-link" href={`#${campus.id}`} aria-label={`Conoce más sobre ${campus.name}`}>Conoce más <span aria-hidden="true">→</span></a>
         </div>
       </article>)}
@@ -268,7 +280,14 @@ function Campuses() {
 }
 
 export default function App() {
-  const getView = () => window.location.hash === '#nosotros' ? 'about' : (window.location.hash === '#sedes' || window.location.hash.startsWith('#sede-')) ? 'campuses' : 'home'
+  const getView = () => {
+    const { hash } = window.location
+    if (hash === '#nosotros') return 'about'
+    if (hash === '#sedes' || hash.startsWith('#sede-')) return 'campuses'
+    if (hash === '#noticias') return 'news'
+    if (hash === '#admision') return 'admission'
+    return 'home'
+  }
   const [view, setView] = useState(getView)
 
   useEffect(() => {
@@ -286,5 +305,12 @@ export default function App() {
     })
   }, [view])
 
-  return <><Header />{view === 'about' ? <AboutPage /> : view === 'campuses' ? <CampusesPage /> : <main id="inicio"><Hero /><Levels /><Campuses /><WhyChooseUs /><FrequentlyAskedQuestions /></main>}<Footer /></>
+  const pages = {
+    about: <AboutPage />,
+    campuses: <CampusesPage />,
+    news: <main><News /></main>,
+    admission: <main><Admission /></main>,
+  }
+
+  return <><Header />{pages[view] ?? <main id="inicio"><Hero /><Levels /><Campuses /><WhyChooseUs /><FrequentlyAskedQuestions /></main>}<Footer /></>
 }

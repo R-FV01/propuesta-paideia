@@ -8,9 +8,9 @@ const customCampusImages = import.meta.glob('./assets/sede-*.{jpg,jpeg,png,webp}
 const imageFor = (slug, fallback) => Object.entries(customCampusImages).find(([path]) => path.includes(`sede-${slug}.`))?.[1] ?? fallback
 
 const campuses = [
-  { id: 'sede-trujillo', number: '01', city: 'Trujillo', name: 'Sede Trujillo', address: 'Av. América Sur 3845, Trujillo, Perú', description: 'Un espacio para aprender, crear y desarrollar grandes metas.', image: imageFor('trujillo', americaFacade), color: 'gold' },
-  { id: 'sede-manuel-cedeno', number: '02', city: 'La Esperanza', name: 'Sede Manuel Cedeño', address: 'Jr. Manuel Cedeño 980, La Esperanza, Trujillo, Perú', description: 'Acompañamiento cercano para crecer con confianza y valores.', image: imageFor('manuel-cedeno', cedenoFacade), color: 'blue' },
-  { id: 'sede-22-febrero', number: '03', city: 'La Esperanza', name: 'Sede 22 de Febrero', address: '22 de Febrero 623, La Esperanza, Trujillo, Perú', description: 'Una comunidad que impulsa talentos y sueños todos los días.', image: imageFor('22-febrero', febreroFacade), color: 'coral' },
+  { id: 'sede-trujillo', number: '01', city: 'Trujillo', name: 'Sede Trujillo', address: 'Av. América Sur 3845, Trujillo, Perú', reference: 'Frente al Jardín Botánico', description: 'Un espacio para aprender, crear y desarrollar grandes metas.', image: imageFor('trujillo', americaFacade), color: 'gold' },
+  { id: 'sede-manuel-cedeno', number: '02', city: 'La Esperanza', name: 'Sede Manuel Cedeño', address: 'Jr. Manuel Cedeño 980, La Esperanza, Trujillo, Perú', reference: 'A 5 cuadras de la Plaza de Armas', description: 'Acompañamiento cercano para crecer con confianza y valores.', image: imageFor('manuel-cedeno', cedenoFacade), color: 'blue' },
+  { id: 'sede-22-febrero', number: '03', city: 'La Esperanza', name: 'Sede 22 de Febrero', address: '22 de Febrero 623, La Esperanza, Trujillo, Perú', reference: 'A 2 cuadras de la Comisaría Bellavista', description: 'Una comunidad que impulsa talentos y sueños todos los días.', image: imageFor('22-febrero', febreroFacade), color: 'coral' },
 ]
 
 function MapPin() { return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5.4-8 11-8 11S4 15.4 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.7" /></svg> }
@@ -39,6 +39,7 @@ export default function CampusesPage() {
             <span className="campus-view-eyebrow">Un lugar para crecer</span>
             <h2>{campus.name}</h2>
             <p className="campus-view-description">{campus.description}</p>
+            <p className="campus-view-reference"><span aria-hidden="true">◆</span>Referencia: <strong>{campus.reference}</strong></p>
             <div className="campus-map-wrap">
               <iframe title={`Mapa de ${campus.name}`} src={mapUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
               <div className="campus-map-address"><MapPin /><span>{campus.address}</span></div>

@@ -8,6 +8,22 @@ const values = [
   { number: '03', title: 'Integridad', text: 'Formamos personas coherentes, responsables y comprometidas con su comunidad.' },
 ]
 
+const methodology = [
+  { title: 'Explora', text: 'Despierto mi curiosidad, descubro y me hago preguntas.', icon: 'explore' },
+  { title: 'Comprende', text: 'Construyo conocimientos a partir de mis experiencias.', icon: 'understand' },
+  { title: 'Aplica', text: 'Llevo lo aprendido a situaciones reales y significativas.', icon: 'apply' },
+  { title: 'Crea', text: 'Convierto mis ideas en proyectos, soluciones y nuevas experiencias.', icon: 'create' },
+]
+
+function MethodIcon({ type }) {
+  return <svg viewBox="0 0 24 24" aria-hidden="true">
+    {type === 'explore' && <><circle cx="10.5" cy="10.5" r="6.5" /><path d="m20 20-4.8-4.8" /></>}
+    {type === 'understand' && <><path d="M9 18h6M10 21h4" /><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3Z" /></>}
+    {type === 'apply' && <><path d="M14.7 6.3a4 4 0 0 0-5.4 5.3L3 18l3 3 6.4-6.3a4 4 0 0 0 5.3-5.4l-2.6 2.6-2.4-.6-.6-2.4Z" /></>}
+    {type === 'create' && <><path d="m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7Z" /></>}
+  </svg>
+}
+
 export default function AboutPage() {
   return <main className="about-page" id="nosotros">
     <section className="about-hero" aria-labelledby="about-title">
@@ -24,6 +40,21 @@ export default function AboutPage() {
           <img src={aboutImage} alt="Docente Paideia acompañando el aprendizaje de una estudiante" />
           <span className="about-image-tag"><strong>Desde 2007</strong>Educando con propósito</span>
         </div>
+      </div>
+    </section>
+
+    <section className="about-method" aria-labelledby="method-title">
+      <span className="about-method-sun" aria-hidden="true" />
+      <div className="about-method-inner">
+        <p className="about-kicker about-reveal">Cómo aprendemos</p>
+        <h2 className="about-reveal about-delay-one" id="method-title">Metodología Paideia</h2>
+        <ol className="about-method-steps">
+          {methodology.map((step, index) => <li className={`about-method-card about-method-${step.icon} about-reveal`} style={{ animationDelay: `${.15 + index * .1}s` }} key={step.title}>
+            <div className="about-method-head"><span className="about-method-number">0{index + 1}</span><MethodIcon type={step.icon} /><h3>{step.title}</h3></div>
+            <p>{step.text}</p>
+          </li>)}
+        </ol>
+        <p className="about-method-closing about-reveal about-delay-three">Una educación que no solo enseña, sino que <strong>inspira a aprender, hacer y crear.</strong></p>
       </div>
     </section>
 
