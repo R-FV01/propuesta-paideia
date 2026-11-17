@@ -1,5 +1,5 @@
-import aboutImage from './assets/nosotros-hero.jpg'
 import CommunityCarousel from './CommunityCarousel'
+import { useContent } from './content/ContentContext'
 import './about-page.css'
 
 const values = [
@@ -25,20 +25,22 @@ function MethodIcon({ type }) {
 }
 
 export default function AboutPage() {
+  const { sections } = useContent()
+  const content = sections.about
   return <main className="about-page" id="nosotros">
     <section className="about-hero" aria-labelledby="about-title">
       <span className="about-hero-orbit" aria-hidden="true" />
       <span className="about-hero-sun" aria-hidden="true" />
       <div className="about-hero-inner">
         <div className="about-hero-copy about-reveal">
-          <p className="about-kicker">Conoce Paideia</p>
-          <h1 id="about-title">Una escuela que<br /><span>cree en cada futuro.</span></h1>
-          <p>Somos una comunidad educativa que acompaña a niñas, niños y adolescentes para que aprendan con confianza, vivan sus valores y descubran su mejor versión.</p>
-          <a className="about-cta" href="#niveles">Conoce nuestra propuesta <span aria-hidden="true">→</span></a>
+          <p className="about-kicker">{content.kicker}</p>
+          <h1 id="about-title">{content.title}</h1>
+          <p>{content.intro}</p>
+          <a className="about-cta" href={content.buttonHref}>{content.buttonLabel} <span aria-hidden="true">→</span></a>
         </div>
         <div className="about-hero-image about-reveal about-delay-one">
-          <img src={aboutImage} alt="Docente Paideia acompañando el aprendizaje de una estudiante" />
-          <span className="about-image-tag"><strong>Desde 2007</strong>Educando con propósito</span>
+          <img src={content.image} alt={content.imageAlt} />
+          <span className="about-image-tag"><strong>{content.imageBadgeTitle}</strong>{content.imageBadgeText}</span>
         </div>
       </div>
     </section>

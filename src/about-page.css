@@ -1,24 +1,24 @@
-.about-page { background: #fffdf8; color: var(--color-dark); }
-.about-hero { position: relative; isolation: isolate; overflow: hidden; padding: 68px 20px 76px; background: linear-gradient(135deg, #fff9e9, #fffdf8 64%, #edf8f7); }
-.about-hero::before { position: absolute; z-index: -1; inset: 0; content: ""; background: radial-gradient(circle at 10% 84%, rgb(115 204 215 / 19%), transparent 20rem), radial-gradient(circle at 82% 15%, rgb(224 159 18 / 18%), transparent 20rem); }
+.about-page { background: #f1efea; color: var(--color-dark); }
+.about-hero { position: relative; isolation: isolate; overflow: hidden; padding: 68px 20px 76px; background: linear-gradient(135deg, #fff9e9, #f1efea 64%, #edf8f7); }
+.about-hero::before { position: absolute; z-index: -1; inset: 0; content: ""; background: radial-gradient(circle at 10% 84%, rgb(115 204 215 / 19%), transparent 20rem), radial-gradient(circle at 82% 15%, rgb(242 138 58 / 18%), transparent 20rem); }
 .about-hero-inner, .about-story-grid, .about-stat-row, .about-purpose, .about-values { width: min(100%, 1120px); margin-inline: auto; }
 .about-hero-inner { display: grid; gap: 42px; }
 .about-hero-copy { align-self: center; max-width: 530px; }
-.about-kicker { margin: 0 0 16px; color: #c58408; font-size: 12px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; }
+.about-kicker { margin: 0 0 16px; color: #d96f2c; font-size: 12px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; }
 .about-hero h1 { margin: 0; font-size: clamp(40px, 10vw, 69px); line-height: 1.04; letter-spacing: -1.8px; }
-.about-hero h1 span, .about-story h2 span, .about-purpose h2 span { color: #c58408; }
+.about-hero h1 span, .about-story h2 span, .about-purpose h2 span { color: #d96f2c; }
 .about-hero-copy > p:last-of-type { max-width: 490px; margin: 23px 0 29px; color: var(--color-text); font-size: 16px; line-height: 1.65; }
 .about-cta { display: inline-flex; align-items: center; gap: 16px; min-height: 49px; padding: 12px 18px; border-radius: 6px; color: #fff; background: var(--color-primary); font-size: 13px; font-weight: 800; transition: background-color .25s ease, transform .25s ease; }
-.about-cta:hover { background: #c98b09; transform: translateY(-3px); }
+.about-cta:hover { background: #d96f2c; transform: translateY(-3px); }
 .about-cta span { font-size: 19px; }
 .about-hero-image { position: relative; width: min(100%, 460px); margin-inline: auto; padding: 10px; border: 1px solid rgb(255 255 255 / 88%); background: #fff; box-shadow: 0 21px 45px rgb(37 43 66 / 13%); }
 .about-hero-image::before { position: absolute; z-index: -1; top: -28px; right: -28px; width: 110px; height: 110px; border: 20px solid #f3d27f; border-radius: 50%; content: ""; animation: about-float 6s ease-in-out infinite alternate; }
 .about-hero-image img { display: block; width: 100%; aspect-ratio: 1 / 1.02; object-fit: cover; object-position: center; }
 .about-image-tag { position: absolute; bottom: 18px; left: -15px; display: grid; gap: 3px; padding: 12px 17px; color: #fff; background: #2b5870; box-shadow: 0 9px 19px rgb(37 43 66 / 18%); font-size: 11px; }
-.about-image-tag strong { color: #ffd363; font-size: 16px; }
+.about-image-tag strong { color: #fed61c; font-size: 16px; }
 .about-hero-orbit { position: absolute; z-index: -1; top: 52px; right: -87px; width: 300px; height: 300px; border: 1px dashed rgb(197 132 8 / 38%); border-radius: 50%; animation: about-spin 28s linear infinite; }
-.about-hero-sun { position: absolute; z-index: -1; top: 21%; left: -38px; width: 82px; height: 82px; border-radius: 50%; background: #ffd363; animation: about-float 4s ease-in-out infinite alternate; }
-.about-method { position: relative; isolation: isolate; overflow: hidden; padding: 70px 20px; background: #fbf8f1; }
+.about-hero-sun { position: absolute; z-index: -1; top: 21%; left: -38px; width: 82px; height: 82px; border-radius: 50%; background: #fed61c; animation: about-float 4s ease-in-out infinite alternate; }
+.about-method { position: relative; isolation: isolate; overflow: hidden; padding: 70px 20px; background: #f1efea; }
 .about-method-sun { position: absolute; z-index: -1; top: -120px; left: -160px; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, #fde9cc 0%, #fdf0dc 55%, transparent 70%); animation: about-float 7s ease-in-out infinite alternate; }
 .about-method-inner { width: min(100%, 1120px); margin-inline: auto; text-align: center; }
 .about-method h2 { margin: 0; color: #2b2f3a; font-size: clamp(30px, 5vw, 44px); font-weight: 500; letter-spacing: .5px; text-transform: uppercase; }
@@ -43,7 +43,7 @@
 .about-story-copy p { margin: 0 0 15px; }
 .about-stat-row { display: grid; gap: 12px; margin-top: 39px; }
 .about-stat-row div { display: grid; gap: 6px; padding: 23px 20px; border-left: 3px solid #e3a516; background: #fff8e9; }
-.about-stat-row strong { color: #c58408; font-size: 38px; line-height: 1; }
+.about-stat-row strong { color: #d96f2c; font-size: 38px; line-height: 1; }
 .about-stat-row span { max-width: 175px; font-size: 13px; font-weight: 700; line-height: 1.4; }
 .community-carousel { width: min(100%, 1120px); margin: 38px auto 0; overflow: hidden; background: #fff; box-shadow: 0 18px 35px rgb(37 43 66 / 12%); }
 .community-carousel-stage { position: relative; height: clamp(330px, 47vw, 560px); overflow: hidden; background: #2b5870; }
@@ -60,10 +60,10 @@
 .community-carousel-arrows button { display: grid; place-items: center; width: 35px; height: 35px; border: 1px solid rgb(255 255 255 / 55%); border-radius: 50%; color: #fff; background: rgb(37 43 66 / 34%); font: inherit; font-size: 17px; cursor: pointer; transition: background-color .2s ease, color .2s ease, transform .2s ease; }
 .community-carousel-arrows button:hover { color: #2b5870; background: #fff; transform: translateY(-2px); }
 .community-carousel-footer { display: flex; align-items: center; justify-content: space-between; min-height: 47px; padding: 0 17px; color: #52616c; font-size: 11px; font-weight: 800; letter-spacing: 1px; }
-.community-carousel-footer i { padding-inline: 3px; color: #c58408; font-style: normal; }
+.community-carousel-footer i { padding-inline: 3px; color: #d96f2c; font-style: normal; }
 .community-carousel-dots { display: flex; gap: 6px; }
 .community-carousel-dots button { width: 18px; height: 3px; padding: 0; border: 0; background: #d6dde0; cursor: pointer; transition: width .25s ease, background-color .25s ease; }
-.community-carousel-dots button.is-active { width: 32px; background: #c58408; }
+.community-carousel-dots button.is-active { width: 32px; background: #d96f2c; }
 .about-purpose { position: relative; padding: 71px 20px; overflow: hidden; background: #eaf6f5; }
 .about-purpose::before { position: absolute; top: -95px; right: -94px; width: 260px; height: 260px; border: 45px solid rgb(45 117 135 / 9%); border-radius: 50%; content: ""; }
 .about-purpose-heading { position: relative; z-index: 1; max-width: 530px; }
@@ -79,10 +79,10 @@
 .about-values-list { display: grid; gap: 12px; }
 .about-values-list article { position: relative; padding: 23px 48px 23px 21px; border-bottom: 1px solid rgb(37 43 66 / 12%); transition: background-color .3s ease, padding-left .3s ease; }
 .about-values-list article:hover { padding-left: 28px; background: #fff7e5; }
-.about-values-list span { color: #c58408; font-size: 12px; font-weight: 800; }
+.about-values-list span { color: #d96f2c; font-size: 12px; font-weight: 800; }
 .about-values-list h3 { margin: 9px 0 7px; font-size: 24px; }
 .about-values-list p { max-width: 370px; margin: 0; color: var(--color-text); font-size: 14px; line-height: 1.55; }
-.about-values-list i { position: absolute; top: 32px; right: 17px; color: #c58408; font-size: 25px; font-style: normal; }
+.about-values-list i { position: absolute; top: 32px; right: 17px; color: #d96f2c; font-size: 25px; font-style: normal; }
 .about-reveal { animation: about-reveal .7s cubic-bezier(.22, 1, .36, 1) both; }
 .about-delay-one { animation-delay: .12s; }.about-delay-two { animation-delay: .24s; }.about-delay-three { animation-delay: .36s; }
 @keyframes about-reveal { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }

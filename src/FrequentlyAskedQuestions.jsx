@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import faqImage from './assets/paideia faq.png'
+import { useContent } from './content/ContentContext'
 import './frequently-asked-questions.css'
 
 const questions = [
@@ -26,6 +26,8 @@ const questions = [
 ]
 
 export default function FrequentlyAskedQuestions() {
+  const { sections } = useContent()
+  const content = sections.faq
   const [openQuestions, setOpenQuestions] = useState(new Set([0]))
 
   const toggleQuestion = (index) => {
@@ -48,13 +50,13 @@ export default function FrequentlyAskedQuestions() {
     </div>
     <div className="faq-layout">
       <div className="faq-visual">
-        <img src={faqImage} alt="Estudiantes de Paideia concentrados en una actividad académica" loading="lazy" decoding="async" />
-        <div className="faq-visual-message"><span>Paideia responde</span><strong>Estamos para<br />acompañarte</strong></div>
+        <img src={content.image} alt={content.imageAlt} loading="lazy" decoding="async" />
+        <div className="faq-visual-message"><span>{content.visualKicker}</span><strong>{content.visualTitle}</strong></div>
       </div>
       <div className="faq-content">
-        <p className="faq-kicker">Resolvemos tus dudas</p>
-        <h2 id="faq-heading">Preguntas<br /><span>frecuentes</span></h2>
-        <p className="faq-intro">Queremos que elijas con tranquilidad. Aquí encontrarás respuestas a las consultas más comunes de las familias.</p>
+        <p className="faq-kicker">{content.kicker}</p>
+        <h2 id="faq-heading">{content.title}</h2>
+        <p className="faq-intro">{content.intro}</p>
         <div className="faq-list">
           {questions.map((item, index) => {
             const isOpen = openQuestions.has(index)

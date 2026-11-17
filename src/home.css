@@ -1,0 +1,165 @@
+/* Página principal — diseño Canva "Paideia College 2027" */
+.home-page {
+  --serif: Gelasio, Georgia, "Times New Roman", serif;
+  color: var(--pd-deep-navy);
+  background: var(--pd-cream);
+  font-family: Poppins, "Segoe UI", Arial, sans-serif;
+}
+.home-container { position: relative; z-index: 1; width: min(100% - 40px, 1080px); margin-inline: auto; }
+.home-container-narrow { width: min(100% - 40px, 920px); }
+.home-center { text-align: center; }
+.home-accent { color: var(--pd-orange); }
+
+.home-kicker { margin: 0 0 10px; color: var(--pd-blue); font-size: 13px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; }
+.home-title { margin: 0; color: var(--pd-blue); font-family: var(--serif); font-size: clamp(30px, 6.4vw, 44px); font-weight: 600; line-height: 1.15; letter-spacing: -.4px; }
+.home-title-light { color: #fff; }
+.home-title-break { display: block; }
+
+.home-pill { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 11px 28px; border-radius: 999px; font-size: 15px; font-weight: 500; transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease; }
+.home-pill svg { width: 19px; height: 19px; fill: currentColor; }
+.home-pill:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgb(8 20 46 / 28%); }
+.home-pill:focus-visible { outline: 3px solid var(--pd-orange); outline-offset: 3px; }
+.home-pill-navy { color: #fff; background: var(--pd-deep-navy); }
+.home-pill-navy:hover { background: #0e2348; }
+
+/* Fondo de damero azul */
+.home-checker, .home-hero {
+  background-color: var(--pd-blue);
+  background-image: conic-gradient(rgb(255 255 255 / 5.5%) 25%, transparent 0 50%, rgb(255 255 255 / 5.5%) 0 75%, transparent 0);
+  background-size: 108px 108px;
+}
+
+/* Hero */
+.home-hero { position: relative; overflow: hidden; color: #fff; }
+.home-hero-inner { display: grid; gap: 10px; width: min(100% - 40px, 1120px); margin-inline: auto; padding-top: 54px; }
+.home-hero-copy { position: relative; z-index: 2; max-width: 640px; }
+.home-badge { display: inline-block; margin: 0 0 20px; padding: 7px 16px; border-radius: 999px; color: #fff; background: var(--pd-orange); font-size: 12px; font-weight: 700; letter-spacing: .3px; text-transform: uppercase; }
+.home-hero h1 { margin: 0 0 30px; font-family: var(--serif); font-size: clamp(32px, 8vw, 48px); font-weight: 600; line-height: 1.14; letter-spacing: -.3px; }
+.home-hero-art { position: relative; justify-self: center; width: min(100%, 440px); height: 420px; margin-top: 10px; }
+.home-hero-circle { position: absolute; border-radius: 50%; }
+.home-hero-circle-navy { top: 70px; left: -6%; width: 104%; aspect-ratio: 1; background: var(--pd-deep-navy); }
+.home-hero-circle-orange { top: 84px; left: 6%; width: 96%; aspect-ratio: 1; background: var(--pd-orange); }
+.home-hero-art img { position: absolute; z-index: 1; bottom: 0; left: 50%; width: 88%; height: auto; transform: translateX(-46%); }
+
+/* Bienvenida */
+.home-welcome { padding: 72px 0 76px; }
+.home-welcome .home-title { margin-bottom: 34px; }
+.home-welcome-grid { display: grid; gap: 22px; }
+.home-welcome p { margin: 0 0 16px; color: var(--pd-deep-navy); font-size: 14.5px; line-height: 1.7; }
+.home-welcome strong { font-weight: 700; }
+.home-welcome-columns p:last-child { margin-bottom: 0; }
+.home-director { display: flex; align-items: center; gap: 18px; width: max-content; max-width: 100%; margin: 26px 0 0; padding: 10px 26px 10px 10px; border-radius: 16px; background: #fff; box-shadow: 0 12px 28px rgb(22 49 96 / 8%); }
+.home-director img { flex: none; width: 82px; height: 82px; border-radius: 12px; object-fit: cover; object-position: 50% 18%; }
+.home-director figcaption { display: grid; gap: 4px; }
+.home-director strong { max-width: 160px; color: var(--pd-blue); font-family: var(--serif); font-size: 18px; font-weight: 600; line-height: 1.15; }
+.home-director span { max-width: 170px; color: var(--pd-blue); font-size: 10.5px; font-weight: 500; letter-spacing: .3px; line-height: 1.35; text-transform: uppercase; }
+
+/* ¿Por qué elegir Paideia? */
+.home-why { padding: 76px 0 84px; background: var(--pd-deep-navy); }
+.home-why-grid { display: grid; gap: 22px; max-width: 900px; margin: 40px auto 0; }
+.home-why-card { padding: 24px 28px 26px; border-radius: 20px; background: var(--pd-cream); transition: transform .3s ease, box-shadow .3s ease; }
+.home-why-card:hover { transform: translateY(-4px); box-shadow: 0 16px 30px rgb(0 0 0 / 22%); }
+.home-why-card h3 { margin: 0 0 8px; color: var(--pd-orange); font-size: 16px; font-weight: 500; text-align: center; text-transform: uppercase; }
+.home-why-card p { margin: 0; color: var(--pd-deep-navy); font-size: 14px; line-height: 1.6; text-align: justify; hyphens: auto; }
+.home-why-card strong { font-weight: 700; }
+
+/* Nuestra propuesta educativa */
+.home-proposal { padding: 76px 0 84px; }
+.home-proposal-grid { display: grid; gap: 22px; margin-top: 40px; align-items: start; }
+.home-proposal-card { overflow: hidden; border-radius: 20px; background: var(--pd-cream); box-shadow: 0 16px 30px rgb(10 30 70 / 22%); }
+.home-proposal-card img { display: block; width: 100%; aspect-ratio: 16 / 10.5; object-fit: cover; border-radius: 20px 20px 0 0; }
+.home-proposal-card button { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 17px 22px; border: 0; background: transparent; color: var(--pd-orange); font: 600 15px/1.3 Poppins, "Segoe UI", sans-serif; cursor: pointer; text-align: left; }
+.home-proposal-card button:focus-visible { outline: 3px solid var(--pd-orange); outline-offset: -3px; }
+.home-chevron { width: 9px; height: 9px; margin-right: 4px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-3px) rotate(45deg); transition: transform .3s ease; }
+.home-proposal-card.is-open .home-chevron { transform: translateY(2px) rotate(225deg); }
+.home-proposal-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+.home-proposal-panel > div { min-height: 0; overflow: hidden; }
+.home-proposal-card.is-open .home-proposal-panel { grid-template-rows: 1fr; }
+.home-proposal-panel p { margin: 0; padding: 0 22px 20px; color: var(--pd-deep-navy); font-size: 14px; line-height: 1.6; }
+
+/* Proceso de admisión */
+.home-steps { position: relative; overflow: hidden; padding: 76px 0 40px; }
+.home-steps .home-title { margin-bottom: 30px; }
+.home-steps-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.home-steps-list li { display: grid; grid-template-columns: 56px 1fr; gap: 6px 18px; align-items: center; padding: 18px 22px; border-radius: 16px; background: #fff; box-shadow: 0 8px 20px rgb(22 49 96 / 5%); transition: transform .25s ease; }
+.home-steps-list li:hover { transform: translateX(4px); }
+.home-step-number { grid-row: span 2; color: var(--pd-blue); font-family: var(--serif); font-size: 34px; line-height: 1; }
+.home-step-label { display: grid; gap: 2px; }
+.home-step-label small { color: var(--pd-deep-navy); font-size: 12px; font-weight: 700; letter-spacing: .3px; text-transform: uppercase; }
+.home-step-label strong { color: var(--pd-blue); font-size: 15px; font-weight: 600; }
+.home-steps-list p { margin: 0; color: var(--pd-deep-navy); font-size: 13.5px; line-height: 1.55; }
+
+/* Niveles académicos */
+.home-levels { position: relative; overflow: hidden; padding: 50px 0 90px; }
+.home-levels-list { display: grid; gap: 34px; }
+.home-level { --level-bg: var(--pd-sky); --level-ink: var(--pd-teal); --level-button: var(--pd-teal); --level-button-ink: #fff; display: grid; overflow: hidden; padding: 8px; border-radius: 22px; background: #fff; box-shadow: 0 16px 34px rgb(22 49 96 / 9%); scroll-margin-top: 100px; }
+.home-level-yellow { --level-bg: var(--pd-yellow); --level-ink: var(--pd-deep-navy); --level-button: var(--pd-deep-navy); }
+.home-level-periwinkle { --level-bg: var(--pd-periwinkle); --level-ink: var(--pd-deep-navy); --level-button: var(--pd-deep-navy); }
+.home-level-navy { --level-bg: var(--pd-navy); --level-ink: #fff; --level-button: var(--pd-cream); --level-button-ink: var(--pd-deep-navy); }
+.home-level-media { overflow: hidden; border-radius: 16px 16px 0 0; background: linear-gradient(180deg, #c6e9fb, #eef9ff); }
+.home-level-media img { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .6s ease; }
+.home-level:hover .home-level-media img { transform: scale(1.04); }
+.home-level-body { display: grid; align-content: space-between; gap: 26px; padding: 30px 30px 34px; border-radius: 0 0 16px 16px; color: var(--level-ink); background: var(--level-bg); }
+.home-level-kicker { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .3px; text-transform: uppercase; }
+.home-level-tagline { margin: 0 0 4px; font-size: 11px; font-weight: 700; letter-spacing: .3px; text-transform: uppercase; }
+.home-level h3 { margin: 0 0 8px; font-family: var(--serif); font-size: clamp(34px, 7vw, 44px); font-weight: 700; line-height: 1.05; letter-spacing: -.4px; }
+.home-level-text { max-width: 380px; margin: 0; font-size: 14px; line-height: 1.55; }
+.home-level-button { justify-self: start; min-height: 40px; padding: 9px 30px; color: var(--level-button-ink); background: var(--level-button); font-size: 12px; font-weight: 600; letter-spacing: .3px; text-transform: uppercase; }
+.home-level-button:focus-visible { outline-color: var(--level-ink); }
+
+/* Formas decorativas (aro azul + círculo naranja) */
+.home-decor { position: absolute; z-index: 0; display: none; width: 190px; height: 190px; pointer-events: none; }
+.home-decor-ring { position: absolute; inset: 0; border: 26px solid var(--pd-blue); border-radius: 50%; }
+.home-decor-dot { position: absolute; width: 100px; height: 100px; border-radius: 50%; background: var(--pd-orange); }
+.home-decor-right { top: 90px; right: -95px; }
+.home-decor-right .home-decor-dot { bottom: 30px; left: -40px; }
+.home-decor-left { top: 22%; left: -110px; }
+.home-decor-left .home-decor-dot { top: -40px; right: 40px; }
+.home-decor-low { top: auto; bottom: 20%; }
+
+@media (min-width: 720px) {
+  .home-container, .home-hero-inner { width: min(100% - 64px, 1080px); }
+  .home-container-narrow { width: min(100% - 64px, 920px); }
+  .home-welcome-grid { grid-template-columns: 1fr 2fr; gap: 36px; }
+  .home-welcome-columns { column-count: 2; column-gap: 36px; }
+  .home-welcome-columns p { break-inside: avoid-column; }
+  .home-why-grid { grid-template-columns: repeat(2, 1fr); gap: 26px 22px; }
+  .home-proposal-grid { grid-template-columns: repeat(3, 1fr); }
+  .home-steps-list li { grid-template-columns: 70px 1px 170px 1px 1fr; gap: 0 24px; padding: 20px 30px; }
+  .home-steps-list li::before, .home-steps-list li::after { width: 1px; height: 46px; content: ""; background: rgb(22 49 96 / 18%); }
+  .home-steps-list li::before { grid-column: 2; grid-row: 1; }
+  .home-steps-list li::after { grid-column: 4; grid-row: 1; }
+  .home-step-number { grid-column: 1; grid-row: 1; font-size: 38px; }
+  .home-step-label { grid-column: 3; grid-row: 1; }
+  .home-steps-list p { grid-column: 5; grid-row: 1; }
+  .home-level { grid-template-columns: 45% 1fr; min-height: 440px; }
+  .home-level-media { border-radius: 16px 0 0 16px; }
+  .home-level-media img { aspect-ratio: auto; }
+  .home-level-body { padding: 36px 44px 40px; border-radius: 0 16px 16px 0; }
+}
+
+@media (min-width: 960px) {
+  .home-hero-inner { grid-template-columns: 1fr 470px; align-items: center; gap: 30px; min-height: 600px; padding-top: 0; }
+  .home-hero-copy { padding: 60px 0; }
+  .home-hero-art { align-self: end; width: 470px; height: 560px; margin: 0; }
+  .home-hero-circle-navy { top: 90px; left: -40px; width: 540px; }
+  .home-hero-circle-orange { top: 104px; left: 6px; width: 500px; }
+  .home-hero-art img { width: 440px; }
+  .home-welcome { padding: 96px 0 110px; }
+  .home-why, .home-proposal { padding: 96px 0 104px; }
+  .home-steps { padding-top: 100px; }
+  .home-decor { display: block; }
+}
+
+@media (min-width: 1200px) {
+  .home-hero-inner { grid-template-columns: 1fr 520px; }
+  .home-hero-art { width: 520px; height: 600px; }
+  .home-hero-circle-navy { left: -30px; width: 580px; }
+  .home-hero-circle-orange { left: 18px; width: 540px; }
+  .home-hero-art img { width: 470px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-pill, .home-why-card, .home-proposal-panel, .home-chevron, .home-steps-list li, .home-level-media img { transition: none; }
+  .home-pill:hover, .home-why-card:hover, .home-steps-list li:hover, .home-level:hover .home-level-media img { transform: none; }
+}

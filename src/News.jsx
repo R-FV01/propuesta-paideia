@@ -1,25 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import paradeImage from './assets/nosotros-comunidad-6.jpg'
-import teachersImage from './assets/nosotros-comunidad-3.jpg'
-import danceImage from './assets/nosotros-comunidad-4.jpg'
-import playImage from './assets/nosotros-hero.jpg'
-import readingImage from './assets/paideia faq.png'
+import { useContent } from './content/ContentContext'
 import './news.css'
 
 const categories = ['Todos', 'Académico', 'Eventos', 'Comunicados', 'Deportes y Arte']
 const levels = ['Todos los niveles', 'Nido', 'Inicial', 'Primaria', 'Secundaria', 'General']
 const PAGE_SIZE = 6
-
-const news = [
-  { id: 'desfile', category: 'Eventos', level: 'General', date: 'SEP 2026', title: 'Nuestra delegación brilló en el Desfile Cívico Escolar', excerpt: 'Estudiantes, docentes y familias recorrieron las calles con disciplina, alegría y mucho orgullo Paideia.', body: 'Con banderas en alto y paso firme, nuestra delegación participó en el Desfile Cívico Escolar. Escolta, banda y estudiantes de todos los niveles demostraron el compromiso, la puntualidad y el amor por el Perú que trabajamos cada día en el aula. ¡Gracias a las familias que nos acompañaron!', image: paradeImage, featured: true },
-  { id: 'admision', category: 'Comunicados', level: 'General', date: 'OCT 2026', title: 'Proceso de Admisión 2027: vacantes abiertas', excerpt: 'Conoce los pasos, requisitos y fechas para asegurar la vacante de tu hijo.', body: 'Iniciamos el Proceso de Admisión 2027 para Nido, Inicial, Primaria y Secundaria en nuestras tres sedes. Completa el formulario de admisión y un asesor te contactará para agendar una visita guiada, una entrevista familiar y resolver todas tus dudas. Las vacantes son limitadas.', cover: 'admission' },
-  { id: 'psicomotricidad', category: 'Académico', level: 'Inicial', date: 'SEP 2026', title: 'Taller de juego y psicomotricidad en Inicial', excerpt: 'Aprender moviéndose: coordinación, equilibrio y trabajo en equipo.', body: 'Nuestros pequeños de Inicial vivieron una mañana de circuitos, aros y pelotas para fortalecer su coordinación, su equilibrio y su confianza. El juego dirigido es una de las herramientas que usamos para que aprendan explorando.', image: playImage },
-  { id: 'cronograma', category: 'Comunicados', level: 'General', date: 'OCT 2026', title: 'Cronograma de actividades de octubre', excerpt: 'Reuniones de padres, jornadas pedagógicas y fechas importantes del mes.', body: 'Compartimos el cronograma de octubre: reuniones de padres por nivel, entrega de informes de progreso, jornada pedagógica y actividades por el Mes de la Canción Criolla. Revisa la agenda de tu hijo y mantente atento a nuestros canales oficiales.', cover: 'calendar' },
-  { id: 'ajedrez', category: 'Deportes y Arte', level: 'Secundaria', date: 'NOV 2026', title: 'Resultados del Torneo Interescolar de Ajedrez', excerpt: 'Estrategia, concentración y juego limpio en cada partida.', body: 'Nuestro equipo de ajedrez de Secundaria compitió en el Torneo Interescolar demostrando concentración, estrategia y deportividad. Felicitamos a todos los participantes y a sus entrenadores por representar a Paideia con excelencia.', cover: 'chess' },
-  { id: 'maestro', category: 'Eventos', level: 'General', date: 'JUL 2026', title: 'Celebramos el Día del Maestro', excerpt: 'Un homenaje a quienes inspiran, guían y acompañan cada día.', body: 'Nuestra comunidad rindió homenaje a los docentes Paideia con una ceremonia llena de gratitud. Gracias por enseñar con vocación, paciencia y cariño, y por creer en el futuro de cada estudiante.', image: teachersImage },
-  { id: 'danza', category: 'Deportes y Arte', level: 'Secundaria', date: 'AGO 2026', title: 'Danza y marcha: talento en cada paso', excerpt: 'Nuestras estudiantes se lucieron con una coreografía llena de ritmo.', body: 'Las estudiantes de Secundaria presentaron una coreografía preparada durante semanas en los talleres de arte. Disciplina, coordinación y mucho entusiasmo en cada paso.', image: danceImage },
-  { id: 'lectura', category: 'Académico', level: 'Secundaria', date: 'AGO 2026', title: 'Semana de la lectura y la escritura', excerpt: 'Círculos de lectura, cuentos propios y debates en cada aula.', body: 'Durante la Semana de la Lectura, nuestros estudiantes participaron en círculos literarios, escribieron sus propios relatos y debatieron sobre sus libros favoritos. Leer nos ayuda a pensar, imaginar y comprender el mundo.', image: readingImage },
-]
 
 function NewsCover({ type }) {
   if (type === 'admission') return <svg className="news-cover news-cover-admission" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Portada Admisión 2027">
@@ -63,7 +48,7 @@ function NewsCover({ type }) {
 
 function NewsMedia({ item }) {
   return item.image
-    ? <img src={item.image} alt="" loading="lazy" decoding="async" />
+    ? <img src={item.image} alt={item.imageAlt || ''} loading="lazy" decoding="async" />
     : <NewsCover type={item.cover} />
 }
 
@@ -72,6 +57,7 @@ function Tag({ item }) {
 }
 
 export default function News() {
+  const { news } = useContent()
   const [category, setCategory] = useState('Todos')
   const [level, setLevel] = useState('Todos los niveles')
   const [visible, setVisible] = useState(PAGE_SIZE + 1)
@@ -80,7 +66,8 @@ export default function News() {
 
   const filtered = useMemo(() => news.filter((item) =>
     (category === 'Todos' || item.category === category) &&
-    (level === 'Todos los niveles' || item.level === level)), [category, level])
+    (level === 'Todos los niveles' || item.level === level))
+    .sort((first, second) => Number(second.featured) - Number(first.featured) || (first.sortOrder || 0) - (second.sortOrder || 0)), [category, level, news])
 
   const [featured, ...rest] = filtered
   const shown = rest.slice(0, visible - 1)

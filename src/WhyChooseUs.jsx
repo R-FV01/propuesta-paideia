@@ -1,11 +1,5 @@
-import learningImage from './assets/paideia por que elegirnos.png'
+import { useContent } from './content/ContentContext'
 import './why-choose-us.css'
-
-const reasons = [
-  { title: 'Acompañamiento cercano', text: 'Conocemos sus fortalezas y acompañamos cada paso para que aprenda a su ritmo y crezca con confianza.', icon: 'heart' },
-  { title: 'Valores que se viven', text: 'El respeto, la empatía y la responsabilidad forman parte de lo que aprendemos y compartimos cada día.', icon: 'star' },
-  { title: 'Aprender para la vida', text: 'Despertamos la curiosidad con experiencias que invitan a pensar, crear y descubrir nuevas posibilidades.', icon: 'book' },
-]
 
 function ReasonIcon({ type }) {
   return <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -16,6 +10,8 @@ function ReasonIcon({ type }) {
 }
 
 export default function WhyChooseUs() {
+  const { sections } = useContent()
+  const content = sections.why
   return <section className="why-section" id="por-que-elegirnos" aria-labelledby="why-title">
     <div className="why-decor" aria-hidden="true">
       <span className="why-corner why-corner-top" />
@@ -24,15 +20,15 @@ export default function WhyChooseUs() {
     <div className="why-layout">
       <div className="why-image-frame">
         <span className="why-turning-triangle" aria-hidden="true" />
-        <img src={learningImage} alt="Docente de Paideia acompañando a una niña en una actividad de aprendizaje con tarjetas" loading="lazy" decoding="async" width="1254" height="1254" />
+        <img src={content.image} alt={content.imageAlt} loading="lazy" decoding="async" />
       </div>
       <div className="why-copy">
         <span className="why-spinning-dots" aria-hidden="true" />
-        <p className="section-kicker why-kicker">¿Por qué elegirnos?</p>
-        <h2 id="why-title">Aprender con alegría.<br /><span>Crecer con valores.</span></h2>
-        <p className="why-intro">Lo que nos mueve es verlos descubrir de lo que son capaces. En Paideia, cada estudiante cuenta.</p>
+        <p className="section-kicker why-kicker">{content.kicker}</p>
+        <h2 id="why-title">{content.title}</h2>
+        <p className="why-intro">{content.intro}</p>
         <div className="why-reasons">
-          {reasons.map(reason => <article className="why-reason" key={reason.title}>
+          {content.reasons.map(reason => <article className="why-reason" key={reason.id || reason.title}>
             <span className="why-icon"><ReasonIcon type={reason.icon} /></span>
             <div><h3>{reason.title}</h3><p>{reason.text}</p></div>
           </article>)}

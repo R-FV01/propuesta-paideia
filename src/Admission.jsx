@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import classroomImage from './assets/admision-aula.jpg'
+import { submitAdmissionRequest } from './cms/admissionService'
+import { useContent } from './content/ContentContext'
 import './admission.css'
 
 const grades = ['Nido (desde 18 meses)', 'Inicial (3 a 5 años)', 'Primaria (6 a 11 años)', 'Secundaria (12 a 16 años)']
@@ -7,15 +8,29 @@ const campuses = ['Sede Trujillo', 'Sede Manuel Cedeño', 'Sede 22 de Febrero']
 const emptyForm = { parent: '', email: '', phone: '', grade: '', campus: '' }
 
 export default function Admission() {
+  const { sections } = useContent()
+  const content = sections.admission
   const [form, setForm] = useState(emptyForm)
   const [sentTo, setSentTo] = useState(null)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const update = (field) => (event) => setForm((current) => ({ ...current, [field]: event.target.value }))
 
-  const submit = (event) => {
+  const submit = async (event) => {
     event.preventDefault()
-    setSentTo(form.parent.trim().split(' ')[0])
-    setForm(emptyForm)
+    setSubmitting(true)
+    setError('')
+    try {
+      await submitAdmissionRequest(form)
+      setSentTo(form.parent.trim().split(' ')[0])
+      setForm(emptyForm)
+    } catch (requestError) {
+      console.error('No se pudo registrar la solicitud de admisión.', requestError)
+      setError('No pudimos enviar tu solicitud. Inténtalo nuevamente en unos minutos.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return <section className="admission-section" id="admision" aria-labelledby="admission-title">
@@ -29,8 +44,8 @@ export default function Admission() {
     <div className="admission-layout">
       <div className="admission-card">
         <span className="admission-card-glow" aria-hidden="true" />
-        <p className="admission-kicker">Vacantes limitadas</p>
-        <h1 id="admission-title">Proceso de<br />Admisión 2027</h1>
+        <p className="admission-kicker">{content.kicker}</p>
+        <h1 id="admission-title">{content.title}</h1>
         {sentTo !== null
           ? <div className="admission-success" role="status">
               <span className="admission-success-icon" aria-hidden="true">✓</span>
@@ -56,15 +71,16 @@ export default function Admission() {
                   </select>
                 </label>
               </div>
-              <button className="admission-submit" type="submit">Solicitar información <span aria-hidden="true">→</span></button>
+              {error && <p className="admission-error" role="alert">{error}</p>}
+              <button className="admission-submit" type="submit" disabled={submitting}>{submitting ? 'Enviando…' : content.submitLabel} <span aria-hidden="true">→</span></button>
               <p className="admission-note">Un asesor se pondrá en contacto pronto.</p>
             </form>}
       </div>
       <figure className="admission-photo">
-        <img src={classroomImage} alt="Estudiantes de Paideia trabajando en equipo en el aula" loading="lazy" decoding="async" />
+        <img src={content.image} alt={content.imageAlt} loading="lazy" decoding="async" />
         <figcaption>
-          <strong>Nido · Inicial · Primaria · Secundaria</strong>
-          <span>Agenda una visita y conoce nuestras aulas</span>
+          <strong>{content.imageKicker}</strong>
+          <span>{content.imageCaption}</span>
         </figcaption>
       </figure>
     </div>

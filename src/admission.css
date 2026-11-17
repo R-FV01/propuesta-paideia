@@ -11,7 +11,7 @@
 .admission-layout { display: grid; gap: 28px; width: min(100%, 1120px); margin-inline: auto; }
 .admission-card { position: relative; isolation: isolate; overflow: hidden; padding: 30px 22px 26px; border-radius: 18px; background: white; box-shadow: 0 26px 50px rgb(5 20 50 / 32%); }
 .admission-card-glow { position: absolute; z-index: -1; right: -110px; bottom: -110px; width: 300px; height: 300px; border: 46px solid #fff1e2; border-radius: 50%; box-shadow: 0 0 0 46px #fff8f0; }
-.admission-kicker { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 14px; padding: 6px 11px; border-radius: 99px; background: #fff1e2; color: #d4620f; font-size: 11px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; }
+.admission-kicker { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 14px; padding: 6px 11px; border-radius: 99px; background: #fff1e2; color: #d96f2c; font-size: 11px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; }
 .admission-kicker::before { width: 7px; height: 7px; border-radius: 50%; content: ""; background: var(--color-orange); animation: admission-pulse 1.6s ease-in-out infinite; }
 .admission-card h1 { margin: 0 0 24px; color: var(--color-navy); font-family: Fraunces, Georgia, "Times New Roman", serif; font-size: clamp(32px, 7vw, 42px); font-weight: 600; line-height: 1.08; letter-spacing: -.6px; }
 .admission-form { display: grid; gap: 13px; }
@@ -22,7 +22,7 @@
 .admission-form input:user-invalid { border-color: #d93b3b; }
 .admission-row { display: grid; gap: 13px; }
 .admission-select { position: relative; }
-.admission-select::after { position: absolute; top: 50%; right: 21px; width: 8px; height: 8px; border-right: 2px solid #d4620f; border-bottom: 2px solid #d4620f; content: ""; transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+.admission-select::after { position: absolute; top: 50%; right: 21px; width: 8px; height: 8px; border-right: 2px solid #d96f2c; border-bottom: 2px solid #d96f2c; content: ""; transform: translateY(-70%) rotate(45deg); pointer-events: none; }
 .admission-form select { padding-right: 44px; appearance: none; cursor: pointer; }
 .admission-form select.is-empty { color: #3a4152; }
 .admission-submit { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; margin-top: 4px; border: 0; border-radius: 999px; color: white; background: var(--color-orange); box-shadow: 0 12px 22px rgb(244 122 31 / 30%); font: inherit; font-size: 16px; font-weight: 600; cursor: pointer; transition: box-shadow .3s ease; }
@@ -32,12 +32,14 @@
 .admission-submit span { transition: transform .25s ease; }
 .admission-submit:hover span { transform: translateX(4px); }
 .admission-submit:focus-visible { outline: 3px solid var(--color-navy); outline-offset: 3px; }
+.admission-submit:disabled { cursor: wait; opacity: .7; }
+.admission-error { margin: 0; padding: 10px 14px; border: 1px solid #e6a5a5; border-radius: 12px; color: #8f2020; background: #fff2f2; font-size: 13px; line-height: 1.45; }
 .admission-note { margin: 4px 0 0; color: #2b3242; font-size: 13px; text-align: center; }
 .admission-success { display: grid; justify-items: center; gap: 10px; padding: 24px 6px 10px; text-align: center; animation: admission-in .45s ease both; }
 .admission-success-icon { display: grid; place-items: center; width: 62px; height: 62px; border-radius: 50%; color: white; background: var(--color-orange); font-size: 28px; font-weight: 800; box-shadow: 0 0 0 10px #fff1e2; }
 .admission-success h3 { margin: 12px 0 0; color: var(--color-navy); font-size: 24px; }
 .admission-success p { max-width: 320px; margin: 0; color: #3a4152; font-size: 15px; line-height: 1.55; }
-.admission-success button { margin-top: 8px; padding: 10px 18px; border: 1.5px solid var(--color-orange); border-radius: 999px; color: #d4620f; background: transparent; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.admission-success button { margin-top: 8px; padding: 10px 18px; border: 1.5px solid var(--color-orange); border-radius: 999px; color: #d96f2c; background: transparent; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
 .admission-success button:hover { color: white; background: var(--color-orange); }
 .admission-photo { position: relative; min-height: 300px; margin: 0; overflow: hidden; border-radius: 22px; box-shadow: 0 26px 50px rgb(5 20 50 / 35%); }
 .admission-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.22, 1, .36, 1); }
